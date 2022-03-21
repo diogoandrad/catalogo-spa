@@ -1,11 +1,11 @@
 <nav>
     <mat-toolbar color="primary">
-        <a mat-button href="/" class="nav-link">
+        <a mat-button [routerLink]="['/']" class="nav-link">
           <mat-icon aria-hidden="false" aria-label="Example home icon">book</mat-icon>
           <span class="nav-link-text">Catálogo</span>
         </a>
   
-        <a mat-button href="/pessoa" class="nav-link"><span class="nav-link-text">Pessoa</span></a>
-        <a mat-button href="/cidade" class="nav-link"><span class="nav-link-text">Cidade</span></a>
+        <a mat-button [routerLink]="['/pessoa']" class="nav-link"><span class="nav-link-text">Pessoa</span></a>
+        <a mat-button [routerLink]="['/cidade']" class="nav-link"><span class="nav-link-text">Cidade</span></a>
     </mat-toolbar>
 </nav>

@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>{{data.id !== undefined ? 'Editar' : 'Adicionar'}} Pessoa</h1>
+
+<form [formGroup]="formGroup" (submit)="onSubmit()" autocomplete="off" (keydown.enter)="$event.preventDefault()">
+  <div mat-dialog-content class="pessoa-form">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" maxlength="300">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" maxlength="11">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Idade</mat-label>
+      <input matInput formControlName="idade" maxlength="3">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cidade</mat-label>
+      <input matInput formControlName="cidadeId" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayProperty">
+        <mat-option *ngFor="let option of listaCidadesFiltered  | async" [value]="option">
+          {{option.nome}} - {{option.uf}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="pessoa-form-buttons">
+    <button mat-button mat-dialog-close color="warn">CANCELAR</button>
+    <button mat-button color="primary" cdkFocusInitial type="submit" [disabled]="!this.formGroup.valid">SALVAR</button>
+  </div>
+</form>

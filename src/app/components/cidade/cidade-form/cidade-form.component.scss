@@ -1,0 +1,14 @@
+h1, .cidade-form-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+div.cidade-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-form-field {
+    width: 90%;
+}

@@ -1,0 +1,22 @@
+main.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  height: 400px;
+
+  background: #3f51b5;
+  color: #fff;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 8px;
+}

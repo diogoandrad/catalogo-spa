@@ -1,0 +1,49 @@
+<main class="cidade">
+  <div class="cidade-add-container">
+    <button
+      mat-flat-button
+      color="primary"
+      class="cidade-add-button"
+      (click)="openDialog(undefined)"
+    >
+      <mat-icon>add</mat-icon> Adicionar
+    </button>
+  </div>
+  <div class="cidade-container">
+    <table mat-table [dataSource]="listaCidades" class="mat-elevation-z8">      
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+      <ng-container matColumnDef="uf">
+        <th mat-header-cell *matHeaderCellDef> UF </th>
+        <td mat-cell *matCellDef="let element"> {{element.uf}} </td>
+      </ng-container>
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef class="cidade-table-header">  </th>
+        <td mat-cell *matCellDef="let element" class="cidade-table-body"> 
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="openDialog(element.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="delete(element.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="vazio-container" *ngIf="listaCidades.length === 0">
+    <p>Nenhum resultado encontrado!</p>
+    <p>Cadastre cidades no botão acima "+ Adicionar"</p>
+  </div>
+</main>

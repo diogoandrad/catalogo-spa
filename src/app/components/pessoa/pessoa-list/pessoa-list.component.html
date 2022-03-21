@@ -1,0 +1,39 @@
+<main class="pessoa">
+  <div class="pessoa-add-container">
+    <button
+      mat-flat-button
+      color="primary"
+      class="pessoa-add-button"
+      (click)="openDialog(undefined)"
+    >
+      <mat-icon>add</mat-icon> Adicionar
+    </button>
+  </div>
+  <div class="pessoa-container">
+    <mat-card class="pessoa-card" *ngFor="let pessoa of listaPessoas">
+      <mat-card-title>{{ pessoa.nome }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ pessoa.idade }}
+        {{ pessoa.idade !== 1 ? "anos" : "ano" }}</mat-card-subtitle
+      >
+      <mat-card-content>
+        <p><b>CPF: </b>{{ pessoa.cpf }}</p>
+        <p>
+          <b>Cidade/UF: </b>{{ pessoa.cidade?.nome }} - {{ pessoa.cidade?.uf }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="openDialog(pessoa.id)">
+          EDITAR
+        </button>
+        <button mat-button color="warn" (click)="delete(pessoa.id)">
+          REMOVER
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="vazio-container" *ngIf="listaPessoas.length === 0">
+    <p>Nenhum resultado encontrado!</p>
+    <p>Cadastre pessoas no botão acima "+ Adicionar"</p>
+  </div>
+</main>

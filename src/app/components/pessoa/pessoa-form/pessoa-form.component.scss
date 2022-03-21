@@ -1,0 +1,14 @@
+h1, .pessoa-form-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+div.pessoa-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 90%;
+}
